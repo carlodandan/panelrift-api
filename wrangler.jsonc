@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "manhwa-api",
+	"name": "panelrift-api",
 	"main": "src/index.ts",
 	"compatibility_date": "2026-08-15",
 	"observability": {
