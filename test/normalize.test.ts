@@ -77,18 +77,22 @@ describe('normalizeBrowse', () => {
 		</article>`;
 
 	it('passes the paginator counts through and reports the page size it got', async () => {
-		const list = await normalizeBrowse({ results_html: CARD, total_results: 6961, page: 1, num_pages: 291 }, 1, CONFIG);
+		const list = await normalizeBrowse(
+			{ results_html: CARD, total_results: 6961, page: 1, num_pages: 291 },
+			{ page: 1, sort: 'recently_added' },
+			CONFIG,
+		);
 		expect(list).toMatchObject({ sort: 'recently_added', page: 1, count: 1, total: 6961, total_pages: 291 });
 		expect(list.results[0]?.cover_url).toBe(`${PROXIED}/media/a.png`);
 	});
 
 	it('trusts the page upstream says it served over the one that was asked for', async () => {
-		const list = await normalizeBrowse({ results_html: CARD, page: 291, num_pages: 291 }, 999, CONFIG);
+		const list = await normalizeBrowse({ results_html: CARD, page: 291, num_pages: 291 }, { page: 999, sort: 'recently_added' }, CONFIG);
 		expect(list.page).toBe(291);
 	});
 
 	it('nulls the counts rather than guessing when upstream omits them', async () => {
-		const list = await normalizeBrowse({ results_html: CARD }, 1, CONFIG);
+		const list = await normalizeBrowse({ results_html: CARD }, { page: 1, sort: 'recently_added' }, CONFIG);
 		expect(list.total).toBeNull();
 		expect(list.total_pages).toBeNull();
 	});
@@ -103,24 +107,30 @@ describe('normalizeBrowse', () => {
 					<a href="/manga/alpha-x1/"><img src="/media/a.png" alt="Alpha"></a>
 				</div>
 			</article>`;
-		const list = await normalizeBrowse({ results_html: badged + CARD, num_pages: 1 }, 1, CONFIG);
+		const list = await normalizeBrowse({ results_html: badged + CARD, num_pages: 1 }, { page: 1, sort: 'recently_added' }, CONFIG);
 		expect(list.results.map((entry) => entry.badge)).toEqual(['New', null]);
 	});
 
 	it('throws a 502 when the payload carries no results_html at all', async () => {
-		await expect(normalizeBrowse({ total_results: 10, num_pages: 1 }, 1, CONFIG)).rejects.toThrowError(/markup may have changed/);
+		await expect(normalizeBrowse({ total_results: 10, num_pages: 1 }, { page: 1, sort: 'recently_added' }, CONFIG)).rejects.toThrowError(
+			/markup may have changed/,
+		);
 	});
 
 	it('throws a 502 when a page upstream claims exists yields no cards', async () => {
 		// Cards present but unrecognised is exactly what an upstream markup change
 		// looks like, and it must not come back as an empty 200.
-		await expect(normalizeBrowse({ results_html: '<div class="not-a-card"></div>', num_pages: 291 }, 2, CONFIG)).rejects.toThrowError(
-			/markup may have changed/,
-		);
+		await expect(
+			normalizeBrowse({ results_html: '<div class="not-a-card"></div>', num_pages: 291 }, { page: 2, sort: 'recently_added' }, CONFIG),
+		).rejects.toThrowError(/markup may have changed/);
 	});
 
 	it('accepts an empty page past the end of the listing', async () => {
-		const list = await normalizeBrowse({ results_html: '\n\n', total_results: 6961, page: 400, num_pages: 291 }, 400, CONFIG);
+		const list = await normalizeBrowse(
+			{ results_html: '\n\n', total_results: 6961, page: 400, num_pages: 291 },
+			{ page: 400, sort: 'recently_added' },
+			CONFIG,
+		);
 		expect(list.count).toBe(0);
 		expect(list.results).toEqual([]);
 	});

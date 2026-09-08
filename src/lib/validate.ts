@@ -112,3 +112,29 @@ export function parsePeriod(raw: string | null): RankingPeriodKey {
 }
 
 export { RANKING_PERIODS };
+export interface BrowseQuery {
+	page: number;
+	sort?: string;
+	include_genres?: string;
+	exclude_genres?: string;
+	status?: string;
+	type?: string;
+}
+
+export function parseBrowseQuery(url: URL): BrowseQuery {
+	const page = parsePageNumber(url.searchParams.get('page'));
+	const sort = url.searchParams.get('sort') || undefined;
+	const include_genres = url.searchParams.get('include_genres') || undefined;
+	const exclude_genres = url.searchParams.get('exclude_genres') || undefined;
+	const status = url.searchParams.get('status') || undefined;
+	const type = url.searchParams.get('type') || undefined;
+
+	return {
+		page,
+		sort,
+		include_genres,
+		exclude_genres,
+		status,
+		type,
+	};
+}

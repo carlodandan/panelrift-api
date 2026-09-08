@@ -13,6 +13,8 @@ const SIGNIFICANT_PARAMS: Record<string, string[]> = {
 	'/v1/search': ['term'],
 	'/v1/home': ['period'],
 	'/autocomplete': ['term'],
+	'/v1/browse': ['sort', 'include_genres', 'exclude_genres', 'status', 'type'],
+	'/browse': ['sort', 'include_genres', 'exclude_genres', 'status', 'type'],
 };
 
 /**
