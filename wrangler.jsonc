@@ -12,21 +12,8 @@
 	},
 	"upload_source_maps": true,
 
-	/**
-	 * Public reachability.
-	 *
-	 * The frontend no longer calls this worker over the internet: panelrift's
-	 * Pages Function invokes it through the `API` service binding, which is
-	 * dispatched inside Cloudflare's network and does not use the hostname below.
-	 *
-	 * Uncommenting these two lines takes away the public front door, which is what
-	 * actually restricts the API to that one caller — an Origin allowlist only ever
-	 * constrains browsers, never curl. Flip them *after* confirming a Pages preview
-	 * deploy serves /api/* correctly; do it first and the live site loses its API.
-	 * Note it also ends direct curl access for debugging.
-	 */
-	// "workers_dev": false,
-	// "preview_urls": false,
+	"workers_dev": false,
+	"preview_urls": false,
 
 	"vars": {
 		// Upstream site being scraped. Override per-environment if it ever moves.
