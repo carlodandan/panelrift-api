@@ -1,5 +1,3 @@
-// src/lib/errors.ts
-
 /**
  * An error with an HTTP status attached. Anything thrown that is not an
  * ApiError becomes an opaque 500 so internals never reach clients.

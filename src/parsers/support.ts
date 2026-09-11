@@ -1,4 +1,3 @@
-// src/parsers/support.ts
 //
 // Shared plumbing for HTMLRewriter-based parsing.
 //

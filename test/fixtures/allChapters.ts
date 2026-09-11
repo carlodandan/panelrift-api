@@ -1,4 +1,3 @@
-// test/fixtures/allChapters.ts
 //
 // Synthetic fixture mirroring the structural shape of the upstream
 // `/all-chapters/` page: li[data-chapterno] > a[href][title] >

@@ -1,4 +1,3 @@
-// test/fixtures/reader.ts
 //
 // Synthetic fixture mirroring the structural shape of an upstream reader page:
 // h1 > a[href] (series), h2 (chapter heading), two div.chapternav blocks each

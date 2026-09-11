@@ -1,5 +1,3 @@
-// src/handlers/search.ts
-
 import type { Config, RateLimitBinding } from '../lib/env';
 import { fetchUpstream } from '../lib/upstream';
 import { parseSearch } from '../parsers/search';

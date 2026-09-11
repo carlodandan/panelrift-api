@@ -1,4 +1,3 @@
-// test/fixtures/recentlyAdded.ts
 //
 // Synthetic fixture mirroring the structural shape of the card grid upstream
 // returns in the browse endpoint's `results_html`: article.comic-card >

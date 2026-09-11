@@ -1,4 +1,3 @@
-// src/types.ts
 //
 // Public response shapes. These are the API's contract: change them and you
 // break clients, so they are versioned along with the route prefix.

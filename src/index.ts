@@ -1,5 +1,3 @@
-// src/index.ts
-
 import { Hono, type Context } from 'hono';
 import { POLICIES } from './lib/cache';
 import { readConfig, type AppEnv } from './lib/env';

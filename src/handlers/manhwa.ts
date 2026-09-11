@@ -1,5 +1,3 @@
-// src/handlers/manhwa.ts
-
 import type { Config, RateLimitBinding } from '../lib/env';
 import { parseError } from '../lib/errors';
 import { fetchUpstream } from '../lib/upstream';

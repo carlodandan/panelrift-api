@@ -1,4 +1,3 @@
-// src/lib/covers.ts
 //
 // Cover URLs need their own resolution step, separate from absoluteUrl, because
 // upstream does not serve covers from its own origin.

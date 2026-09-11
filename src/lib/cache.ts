@@ -1,5 +1,3 @@
-// src/lib/cache.ts
-
 /**
  * Edge caching helpers.
  *

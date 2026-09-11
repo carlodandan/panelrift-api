@@ -1,5 +1,3 @@
-// src/handlers/home.ts
-
 import type { Config, RateLimitBinding } from '../lib/env';
 import type { CoverConfig } from '../lib/covers';
 import { resolveCoverUrl } from '../lib/covers';

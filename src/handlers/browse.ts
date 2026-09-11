@@ -1,5 +1,3 @@
-// src/handlers/browse.ts
-
 import type { CoverConfig } from '../lib/covers';
 import type { Config, RateLimitBinding } from '../lib/env';
 import { parseError } from '../lib/errors';

@@ -1,5 +1,3 @@
-// test/parsers.test.ts
-
 import { describe, expect, it } from 'vitest';
 import { parseSearchHtml } from '../src/parsers/search';
 import { parseComicCardsHtml } from '../src/parsers/browse';

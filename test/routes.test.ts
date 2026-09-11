@@ -1,4 +1,3 @@
-// test/routes.test.ts
 //
 // Route-level tests that exercise the worker end to end without touching the
 // upstream site: request validation, method handling, CORS and the error

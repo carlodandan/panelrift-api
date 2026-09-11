@@ -1,5 +1,3 @@
-// src/lib/upstream.ts
-
 import type { Config, RateLimitBinding } from './env';
 import { notFound, tooManyRequests, upstreamError, upstreamTimeout } from './errors';
 

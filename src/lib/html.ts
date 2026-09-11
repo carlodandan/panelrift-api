@@ -1,5 +1,3 @@
-// src/lib/html.ts
-
 const NAMED_ENTITIES: Record<string, string> = {
 	amp: '&',
 	lt: '<',

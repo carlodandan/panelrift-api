@@ -1,5 +1,3 @@
-// test/normalize.test.ts
-
 import { describe, expect, it } from 'vitest';
 import { normalizeRanking } from '../src/handlers/home';
 import { normalizeBrowse } from '../src/handlers/browse';

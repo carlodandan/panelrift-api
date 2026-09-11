@@ -1,5 +1,3 @@
-// src/parsers/manhwa.ts
-
 import type { CoverConfig } from '../lib/covers';
 import { resolveCoverUrl } from '../lib/covers';
 import { cleanText, lastPathSegment, toInteger, toNumber } from '../lib/html';

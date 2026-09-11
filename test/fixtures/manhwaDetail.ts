@@ -1,4 +1,3 @@
-// test/fixtures/manhwaDetail.ts
 //
 // Synthetic fixture mirroring the structural shape of an upstream series detail
 // page. Content is invented; only the markup skeleton reflects upstream.

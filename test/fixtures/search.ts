@@ -1,4 +1,3 @@
-// test/fixtures/search.ts
 //
 // Synthetic fixture mirroring the structural shape of the upstream autocomplete
 // fragment: ul > li.novel-item > a[href][title] > (figure img, h4.novel-title,

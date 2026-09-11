@@ -1,5 +1,3 @@
-// src/lib/validate.ts
-
 import { badRequest } from './errors';
 
 /**

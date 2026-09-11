@@ -1,5 +1,3 @@
-// src/parsers/chapter.ts
-
 import { absoluteUrl, cleanText, lastPathSegment } from '../lib/html';
 import type { Chapter } from '../types';
 import { TextBuffer, attr, hasClass, htmlResponse, runRewriter } from './support';

@@ -1,5 +1,3 @@
-// src/parsers/search.ts
-
 import type { CoverConfig } from '../lib/covers';
 import { resolveCoverUrl } from '../lib/covers';
 import { cleanText, lastPathSegment, toNumber } from '../lib/html';

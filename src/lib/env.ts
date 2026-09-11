@@ -1,5 +1,3 @@
-// src/lib/env.ts
-
 /**
  * Runtime configuration and bindings.
  *

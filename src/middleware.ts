@@ -1,5 +1,3 @@
-// src/middleware.ts
-
 import type { Context, ErrorHandler, MiddlewareHandler } from 'hono';
 import type { ContentfulStatusCode } from 'hono/utils/http-status';
 import { cacheControl, cacheKeyFor, cacheLookup, cacheStore, POLICIES, weakETag, type Deferrable } from './lib/cache';
