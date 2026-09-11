@@ -34,7 +34,7 @@
 		// Milliseconds before an upstream request is aborted.
 		"UPSTREAM_TIMEOUT_MS": "8000",
 		// Comma-separated allowlist of browser Origins, or "*" for any.
-		"ALLOWED_ORIGINS": "https://panelrift.pages.dev",
+		"ALLOWED_ORIGINS": "https://panelrift.pages.dev,https://panelrift.eu.cc",
 		/**
 		 * Image proxy every cover URL is rewritten onto. Covers are NOT served from
 		 * UPSTREAM_BASE_URL — the origin is missing some of the files it stores, so
