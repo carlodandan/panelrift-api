@@ -26,6 +26,7 @@ send `If-None-Match` to get a `304`.
 | GET | `/` | Endpoint index and version marker. |
 | GET | `/v1/home` | All three most-viewed rankings. `?period=1d\|1w\|1m` returns just one. |
 | GET | `/v1/recently_added` | Newest series first, one upstream page at a time. `?page=` (1-based). |
+| GET | `/v1/browse` | Generic filtered listing. `?page=`, `sort=`, `type=`, `status=`, `include_genres=`, `exclude_genres=`. |
 | GET | `/v1/search?term={term}` | Search by title. `term` is 2–100 characters. |
 | GET | `/v1/manhwa/{slug}` | Series detail plus the most recent chapters. |
 | GET | `/v1/manhwa/{slug}/chapters` | Full chapter list. `?page=` (1-based), `?per_page=` (clamped to 500). |
@@ -34,8 +35,8 @@ send `If-None-Match` to get a `304`.
 `GET`, `HEAD` and `OPTIONS` are supported; `HEAD` runs the `GET` route and drops the
 body. Anything else gets `405` with an `Allow` header.
 
-`/recently_added` is an alias of `/v1/recently_added` — same payload, same policy. It is
-not deprecated; the versioned path is simply the canonical one.
+`/recently_added` and `/browse` are aliases of their `/v1/` counterparts — same payload, same policy. They are
+not deprecated; the versioned paths are simply the canonical ones.
 
 ### Deprecated aliases
 
@@ -72,7 +73,7 @@ either a ranking or `null`, and `errors` names the periods that failed:
 }
 ```
 
-`/v1/recently_added` returns `BrowseEntry`, not `ManhwaSummary`. Upstream's browse grid
+`/v1/browse` and `/v1/recently_added` return `BrowseEntry`, not `ManhwaSummary`. Upstream's browse grid
 carries a description, an exact view count and a badge, and carries nothing at all about
 chapters or update times — so rather than shipping two fields that are permanently
 `null`, it is its own shape. The four a cover grid needs (`title`, `slug`, `cover_url`,
@@ -169,6 +170,7 @@ normalised URL) and in whatever client cache honours `Cache-Control`. `X-Cache: 
 | `/` | 300 | 3600 | 600 |
 | `/v1/home` | 60 | 300 | 600 |
 | `/v1/recently_added` | 60 | 300 | 600 |
+| `/v1/browse` | 60 | 300 | 600 |
 | `/v1/search` | 60 | 300 | 600 |
 | `/v1/manhwa/{slug}` | 120 | 600 | 1800 |
 | `/v1/manhwa/{slug}/chapters` | 120 | 900 | 1800 |
